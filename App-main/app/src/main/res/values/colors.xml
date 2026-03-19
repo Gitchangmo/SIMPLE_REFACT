@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green_dark">#2E5130</color>
+    <color name="gray_light">#B0BEC5</color>
+    <color name="selected">#FF5722</color>  <!-- 선택된 색상 -->
+    <color name="default_color">#DDDDDD</color>  <!-- 기본 상태 색상 -->
+</resources>

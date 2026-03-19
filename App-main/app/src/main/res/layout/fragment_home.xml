@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.cookandroid.app.MainActivity">
+
+    <!-- 상단 툴바 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="15dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+        <LinearLayout
+            android:id="@+id/top_text_Line"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/top_toolbar"
+            >
+            <!-- "임박한 유통기한" 제목 -->
+            <TextView
+                android:id="@+id/top_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소비기한이 임박한 식품이 있어요!"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"/>
+
+            <!-- 알림 바-->
+            <ImageView
+                android:id="@+id/notify_list_btn"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/notification">
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_badge"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end|top"
+                android:background="@drawable/bg_badge_circle"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:translationX="-12dp"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+
+    <!-- 유통기한 임박 음식 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/expiration_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/top_text_Line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/inner_linear_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- "오늘의 추천 레시피" 제목 -->
+    <TextView
+        android:id="@+id/recipe_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘의 레시피를 추천해드려요!"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/expiration_card"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"/>
+
+    <!-- 가로 스크롤 가능한 추천 레시피 카드 리스트 -->
+    <android.widget.HorizontalScrollView
+        android:id="@+id/recipe_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipe_text">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+        </LinearLayout>
+    </android.widget.HorizontalScrollView>
+
+        <!-- 메모장 제목 + 스위치 영역 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/memo_header_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/recipe_scroll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- 메모장 제목 -->
+            <TextView
+                android:id="@+id/memo_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일정을 잊지 않게 메모해보세요!"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- 완료된 메모 보기 스위치 -->
+            <Switch
+                android:id="@+id/switch_show_checked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해야할 일"
+                android:textSize="14sp"
+                android:thumbTint="#2E5130"
+                android:trackTint="#2E5130"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 메모 카드뷰 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/memo_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"
+            android:elevation="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/memo_header_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/memo_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <!-- 처음엔 보이는 + 버튼 -->
+                <ImageButton
+                    android:id="@+id/btn_add_memo"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@android:drawable/ic_input_add"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="메모 추가"
+                    android:tint="#2E5130" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@id/memo_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:layout_marginBottom="0dp"
+    android:background="@android:color/white">
+
+    <!-- 음식 사진 -->
+    <ImageView
+        android:id="@+id/imgMeal"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/rounded_bg_white"
+        android:src="@drawable/test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- 끼니(아침/점심/저녁 등) -->
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아침"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#222"
+        app:layout_constraintStart_toEndOf="@id/imgMeal"
+        app:layout_constraintTop_toTopOf="@id/imgMeal"
+        android:layout_marginStart="18dp"/>
+
+    <!-- 메뉴명  -->
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="메뉴명"
+        android:textSize="15sp"
+        android:textColor="#666"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toStartOf="@id/tvType"
+        app:layout_constraintTop_toBottomOf="@id/tvType"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/tvIngredientsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="사용된 재료 : "
+        android:textSize="15sp"
+        android:textColor="#666"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        android:layout_marginTop="6dp"/>
+
+
+    <!-- 상태 표시(체크박스/컬러 박스) -->
+    <View
+        android:id="@+id/viewStatus"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/status_dot_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvType"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

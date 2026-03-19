@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- 종류별 -->
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/filtering_toolbar"
+            android:layout_width="21dp"
+            android:layout_height="45dp"
+            android:background="?attr/colorSurface"
+            android:title="필터링"
+            android:titleTextColor="@android:color/black"
+            app:navigationIcon="@drawable/ic_arrow_back_24" />
+
+
+        <!-- 카드뷰 항목: 종류별 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_category"
+                    android:contentDescription="종류별" />
+
+                <TextView
+                    android:id="@+id/text_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="종류별"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start"
+            android:layout_marginBottom="16dp">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반찬"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디저트"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="면"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="죽"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="퓨전"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="젓갈"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="양념"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="양식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="샐러드"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스프"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="빵"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+
+        <!-- 카드뷰 항목: 상황별 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_situation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_category"
+                    android:contentDescription="상황별" />
+
+                <TextView
+                    android:id="@+id/text_situation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상황별"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_situation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일상"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="초스피드"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="손님"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="안주"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="다이어트"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도시락"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영양식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="간식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="야식"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해장"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <!-- 카드뷰 항목: 재료별 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_category"
+                    android:contentDescription="식단별" />
+
+                <TextView
+                    android:id="@+id/text_ingredient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="식단별"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비건"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="키토"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저지방"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고지방"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고단백"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저탄수"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저염"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="무설탕"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="밀가루"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+        <!-- 카드뷰 항목: 방법별 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_category"
+                    android:contentDescription="방법별" />
+
+                <TextView
+                    android:id="@+id/text_method"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="방법별"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="볶음"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="찌개"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="부침"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="탕"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="무침"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비빔"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="찜"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="절임"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="튀김"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="구이"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="데침"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사시미"
+                android:textColor="#000000"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_margin="4dp" />
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>

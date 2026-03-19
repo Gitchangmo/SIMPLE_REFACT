@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+
+    <!-- ✅ 상단 버튼: 좌우 스크롤 가능하도록 수정 -->
+    <!-- ✅ 상단 탭 바 (슬라이드 가능) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/tab_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="120dp">
+
+            <!-- 레시피 탭 -->
+            <LinearLayout
+                android:id="@+id/btn_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:minWidth="80dp">
+
+                <TextView
+                    android:id="@+id/tv_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="레시피 ✨"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center"/>
+
+                <View
+                    android:id="@+id/indicator_recipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#2E7D32"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <!-- 식단 탭 -->
+            <LinearLayout
+                android:id="@+id/btn_meal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:minWidth="80dp">
+
+                <TextView
+                    android:id="@+id/tv_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="식단 📋"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#888888"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center"/>
+
+                <View
+                    android:id="@+id/indicator_meal"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#2E7D32"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- 장보기 탭 -->
+            <LinearLayout
+                android:id="@+id/btn_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:minWidth="80dp">
+
+                <TextView
+                    android:id="@+id/tv_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장보기 🛒"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#888888"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center"/>
+
+                <View
+                    android:id="@+id/indicator_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#2E7D32"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- 즐겨찾기 탭 -->
+            <LinearLayout
+                android:id="@+id/btn_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:minWidth="80dp">
+
+                <TextView
+                    android:id="@+id/tv_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="즐겨찾기 ⭐"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#888888"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center"/>
+
+                <View
+                    android:id="@+id/indicator_favorites"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#2E7D32"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+
+    <!-- 주재료 선택 제목 -->
+    <TextView
+        android:id="@+id/bottom_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주재료를 선택해주세요!"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="12dp"/>
+
+    <!-- 음식 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/like_food_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_text"
+        />
+
+    <!-- 레시피 추천 버튼 -->
+    <Button
+        android:id="@+id/recipe_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="레시피 추천 받기"
+        android:backgroundTint="#2E5130"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+</LinearLayout>
+
+

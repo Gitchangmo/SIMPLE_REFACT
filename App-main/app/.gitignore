@@ -1,0 +1,34 @@
+/build
+
+# ====================
+# 🔒 보안 파일 (Firebase)
+# ====================
+google-services.json
+simple-a1b33-firebase-adminsdk-fbsvc-beed047fa1.json
+*-firebase-adminsdk-*.json
+*.keystore
+*.jks
+
+# ====================
+# 🔧 빌드 캐시
+# ====================
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ====================
+# 💻 IDE
+# ====================
+*.iml
+.idea/
+.gradle/
+local.properties
+
+# ====================
+# 📦 기타
+# ====================
+.externalNativeBuild/
+.cxx/
+captures/
+*.hprof

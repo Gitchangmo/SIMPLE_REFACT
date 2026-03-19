@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="" />
+    <item
+        android:id="@+id/nav_value"
+        android:icon="@drawable/refrigerator"
+        android:title="" />
+    <item
+        android:id="@+id/nav_like"
+        android:icon="@drawable/recipe"
+        android:title="" />
+    <item
+        android:id="@+id/nav_notice"
+        android:icon="@drawable/statistics2"
+        android:title="" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/user"
+        android:title="" />
+</menu>

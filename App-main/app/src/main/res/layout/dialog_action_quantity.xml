@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="몇 개 소비할까요?"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/dialog_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="통계 분석에 포함됩니다"
+        android:textSize="16sp"
+        android:textColor="#222"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp" />
+
+    <!-- 수량/+-버튼 (수평 LinearLayout로 묶음) -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:id="@+id/layout_dialog_quantity"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_round_border"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/dialog_btn_minus"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="–"
+            android:textSize="20sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#333333"/>
+
+        <TextView
+            android:id="@+id/dialog_txt_count"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-1dp"
+            android:gravity="center"
+            android:text="1개"
+            android:textSize="16sp"
+            android:textColor="#333333"/>
+
+        <TextView
+            android:id="@+id/dialog_btn_plus"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="+"
+            android:textSize="20sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#333333"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnConCancel"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="취소"
+            android:background="@drawable/btn_cancel"
+            android:textColor="#2E5130"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnConConfirm"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:theme="@style/confirmButton"
+            android:text="확인"
+            android:background="@drawable/btn_confirm"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</LinearLayout>

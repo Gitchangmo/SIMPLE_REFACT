@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/logo_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="101dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="SIMPLE"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sub_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="신선함이 시작되는 곳"
+        android:textColor="#EAEAEA"
+        android:textSize="20sp" />
+ㅔ
+</LinearLayout>

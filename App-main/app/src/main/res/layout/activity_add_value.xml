@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="냉장고 속 재료를 찾아보세요!"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/category_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="8dp"
+                android:text="전체"
+                android:textColor="#686868"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/category_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="8dp"
+                android:text="가공/유제품"
+                android:textColor="#686868"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/category_meat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고기"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_grain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="곡물"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_fruit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="과일"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_noodles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="면"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_bread_ricecake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="빵/떡"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_drinks_alcohol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="음료/주류"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_vegetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="채소"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_beans_nuts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="콩/견과류"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_seafood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해산물"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_seasoning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조미료/양념"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/category_etc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기타"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:textColor="#686868"
+                android:padding="8dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/add_value_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"/>
+
+    <Button
+        android:id="@+id/i_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 직접 추가"
+        android:backgroundTint="#2E5130"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

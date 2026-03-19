@@ -1,0 +1,23 @@
+# 최소한의 패키지 버전을 명시하여 requirements.txt 파일을 작성함
+# Install: pip install -r requirements.txt
+
+# Server (FastAPI + scheduler + recommendation + notifications)
+fastapi==0.115.12
+uvicorn==0.34.2
+pydantic==2.10.6
+APScheduler==3.11.0
+pytz==2025.1
+pandas==2.2.3
+firebase-admin==6.8.0
+google-api-python-client==2.170.0
+requests==2.32.3
+openai==0.28.0
+
+# AI runtime (SIMPLE_AI)
+numpy==2.1.1
+opencv-python==4.11.0.86
+torch==2.6.0
+ultralytics==8.3.70
+onnxruntime==1.20.1
+mediapipe
+pyzmq

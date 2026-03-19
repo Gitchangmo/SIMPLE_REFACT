@@ -1,0 +1,300 @@
+# ============================================================
+#  AI 지능형 냉장고 시스템 - .gitignore
+# ============================================================
+#  Python + OpenCV + PyTorch + FastAPI + 딥러닝 프로젝트용
+# ============================================================
+
+# ====================
+# 보안 관련 (최우선 제외)
+# ====================
+
+# 환경 변수 파일 (시크릿 포함)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+*.env
+.env
+
+# Firebase/GCP 서비스 계정 키
+JSON_FILE/
+json_file/
+**/service_account*.json
+**/firebase*.json
+**/google*.json
+**/*credentials*.json
+**/*secret*.json
+**/simple.json
+
+# Android Firebase 설정
+**/google-services.json
+**/*-firebase-adminsdk-*.json
+
+# API 키 파일
+*.key
+*.pem
+*.p12
+*.pfx
+
+# ====================
+# Python 관련
+# ====================
+
+# 바이트코드
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C 확장
+*.so
+
+# 배포/패키징
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 가상환경
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+env.bak/
+venv.bak/
+virtualenv/
+.virtualenv/
+simple_refact/
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# ====================
+# 딥러닝 모델 파일 (대용량)
+# ====================
+
+# PyTorch 모델
+*.pt
+*.pth
+*.ckpt
+*.pkl
+
+# ONNX 모델
+*.onnx
+
+# TensorRT 엔진
+*.engine
+*.trt
+*.plan
+
+# TensorFlow 모델
+*.pb
+*.h5
+*.tflite
+saved_model/
+
+# 기타 모델 포맷
+*.caffemodel
+*.prototxt
+*.weights
+*.bin
+*.params
+
+# 모델 폴더 (폴더 단위 제외)
+YOLO_MODEL/
+LSTM_MODEL/
+YOLO_ONNX/
+models/
+weights/
+checkpoints/
+
+# ====================
+# 대용량 데이터 (이미지/비디오)
+# ====================
+
+# 이미지 파일
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.webp
+# 예외: 문서용 이미지는 허용
+!docs/**/*.png
+!docs/**/*.jpg
+!README_assets/**/*
+
+# 비디오 파일
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+*.webm
+
+# 데이터셋 폴더
+data/
+dataset/
+datasets/
+images/
+videos/
+frames/
+captures/
+
+# 대용량 CSV
+TB_RECIPE_SEARCH*.csv
+
+# ====================
+# OS 생성 파일
+# ====================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ====================
+# IDE / 에디터
+# ====================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+.netrwhist
+
+# ====================
+# Android (App-main)
+# ====================
+
+# Gradle
+.gradle/
+**/build/
+!src/**/build/
+/local.properties
+local.properties
+.externalNativeBuild
+.cxx
+
+# Keystore
+*.jks
+*.keystore
+
+# ====================
+# 기타 빌드/캐시
+# ====================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# 임시 파일
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Node.js
+node_modules/
+
+# ====================
+# 실험/테스트 결과
+# ====================
+
+# TensorBoard / MLflow
+runs/
+tensorboard_logs/
+mlruns/
+mlartifacts/
+wandb/
+
+# 실험 결과
+experiments/
+results/
+outputs/
+predictions/
+
+# ====================
+# 명시적 예외 (허용)
+# ====================
+
+# 문서화용 이미지
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.gif
+
+# 샘플/테스트용 소형 데이터
+!tests/fixtures/**/*
+!samples/**/*

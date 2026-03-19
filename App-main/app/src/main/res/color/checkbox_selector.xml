@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#517cf6" android:state_checked="true"/>   <!-- 체크됐을 때 -->
+    <item android:color="#757575" android:state_checked="false"/>  <!-- 체크 안됐을 때 -->
+</selector>

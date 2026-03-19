@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvLogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원님의 행동 기록이에요!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/filterGroup"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:padding="8dp"
+        android:layout_marginBottom="5dp"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAll"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            style="@style/TagButton"
+            android:text="전체" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            style="@style/TagButton"
+            android:text="추가" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConsume"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            style="@style/TagButton"
+            android:text="소비" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDispose"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            style="@style/TagButton"
+            android:text="폐기" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            style="@style/TagButton"
+            android:text="삭제" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/logRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"/>
+</LinearLayout>

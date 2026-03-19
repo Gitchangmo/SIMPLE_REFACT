@@ -1,0 +1,26 @@
+<resources>
+    <string-array name="category_list">
+        <item>전체</item>
+        <item>채소</item>
+        <item>과일</item>
+        <item>육류</item>
+        <item>해산물</item>
+        <item>유제품</item>
+        <item>조미료</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="quantity_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <!-- 필요한 수량 범위 추가 -->
+    </string-array>
+</resources>

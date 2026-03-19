@@ -1,0 +1,259 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- 상단 네비게이션 -->
+    <include
+        layout="@layout/view_top_buttons"
+        android:id="@+id/topNav" />
+
+    <!-- 주차/날짜/버튼 (좌:텍스트, 우:버튼) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        android:padding="5dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/mealPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layoutWeekInfo"
+            android:text="주간 식단을 추천해드려요!"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <!-- 좌측: 주차/날짜 -->
+        <LinearLayout
+            android:id="@+id/layoutWeekInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/tvWeekLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6월 3주차"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:textColor="#222"/>
+            <TextView
+                android:id="@+id/tvWeekRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6/17 ~ 6/23"
+                android:textSize="18sp"
+                android:textColor="#666"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnRecommend"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/btn_outline"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:id="@+id/tvRecommendText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식단 다시 추천"
+                android:textStyle="bold"
+                android:textColor="#222"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:paddingEnd="4dp"/>
+
+            <ImageView
+                android:id="@+id/ivReload"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/reload"
+                android:contentDescription="리로드"/>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 요일 탭 (아래쪽 전체 폭) -->
+    <LinearLayout
+        android:id="@+id/dayTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/tvWeekRange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="월" style="@style/TabDay"
+                android:id="@+id/btnMon"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorMon"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="visible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="화" style="@style/TabDay"
+                android:id="@+id/btnTue"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorTue"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="수" style="@style/TabDay"
+                android:id="@+id/btnWed"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorWed"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="목" style="@style/TabDay"
+                android:id="@+id/btnThu"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorThu"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="금" style="@style/TabDay"
+                android:id="@+id/btnFri"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorFri"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="토" style="@style/TabDay"
+                android:id="@+id/btnSat"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorSat"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:text="일" style="@style/TabDay"
+                android:id="@+id/btnSun"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <View
+                android:id="@+id/indicatorSun"
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="#AAAAAA"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMeals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="7dp"
+        android:clipToPadding="false"/>
+</LinearLayout>
