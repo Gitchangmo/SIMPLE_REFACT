@@ -41,6 +41,9 @@ def load_vision_models(yolo_path, lstm_path, lstm_params):
     """ YOLO와 LSTM 모델을 로드하여 반환하는 함수. """
     print("AI 모델을 호출합니다!")
     
+    lstm_model = None
+    yolo_model = None
+    
     try:
         print("[LSTM 모델 로드 중]")
         # LSTM 모델 생성
@@ -55,16 +58,15 @@ def load_vision_models(yolo_path, lstm_path, lstm_params):
         # 학습된 가중치 로드
         lstm_model.load_state_dict(torch.load(lstm_path))
         lstm_model.eval()
-    except:
-        print("[LSTM 로드 실패!]")
+    except Exception as e:
+        print(f"[LSTM 로드 실패!] {e}")
     
     try:
-        print("[YOLO ONNX 모델 로드 중]")
+        print("[YOLO 모델 로드 중]")
         # YOLO 모델 로드
         yolo_model = YOLO(yolo_path)
-        #yolo_model = ort.InferenceSession(yolo_path) # 기존 호출에서 onnx로 호출 변경
-    except:
-        print("[YOLO ONNX 로드 실패!]")
+    except Exception as e:
+        print(f"[YOLO 로드 실패!] {e}")
     
     print("모델 호출 완료!")
     

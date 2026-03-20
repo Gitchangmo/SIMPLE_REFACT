@@ -10,16 +10,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 파이어베이스 연결
+db = None
+fridge_items = None
+
 try:
     cred = credentials.Certificate(config.FIREBASE_CRED_PATH)
     firebase_admin.initialize_app(cred)
     db = firestore.client()
+    fridge_items = db.collection("fridges").document("aDfCOX4kY6eNXvf8jbBpQNel1sG3").collection("items")
     print("[DB] 파이어베이스와 연결을 성공했습니다.")
 except Exception as e:
-    db = None
     print(f"🛑 파이어베이스 연결 실패: {e}")
-    
-fridge_items = db.collection("fridges").document("aDfCOX4kY6eNXvf8jbBpQNel1sG3").collection("items")
+    print("⚠️ DB 기능이 비활성화됩니다. 로컬 테스트만 가능합니다.")
 
 def update_inventory(prev_class, next_class, action):
         print(f"[update inventory 함수 진입] prev_class: {prev_class}, next_class: {next_class}, action: {action}")

@@ -4,6 +4,11 @@
 #  Python + OpenCV + PyTorch + FastAPI + 딥러닝 프로젝트용
 # ============================================================
 
+
+# 기타 md 문서
+REFACTORING_LOG.md
+ARCHITECTURE_ANALYSIS_REPORT.md
+
 # ====================
 # 보안 관련 (최우선 제외)
 # ====================

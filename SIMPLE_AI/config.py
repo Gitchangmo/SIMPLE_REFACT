@@ -4,16 +4,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# 이 파일(config.py)이 있는 디렉토리 기준 절대경로
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 IMG_WIDTH = int(os.getenv("IMG_WIDTH", 1280))
 IMG_HEIGHT = int(os.getenv("IMG_HEIGHT", 720))
 ROI_START = int(os.getenv("ROI_START", 832))
 SEQ_LEN = int(os.getenv("SEQ_LEN", 120))
 ZMQ_ADDRESS = os.getenv("ZMQ_BIND_ADDRESS", "tcp://*:5560")
 
-# ===== 모델 경로 설정 =====
-LSTM_MODEL_PATH = os.getenv("LSTM_MODEL_PATH", "./LSTM_MODEL/lstm_model_new_final_simple(0722)_v2.pth")
-YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", "./YOLO_MODEL/final_v1.pt")
-FIREBASE_CRED_PATH = os.getenv("FIREBASE_CRED_PATH_VISION", "./JSON_FILE/simple.json")
+# ===== 모델 경로 설정 (절대경로) =====
+LSTM_MODEL_PATH = os.getenv("LSTM_MODEL_PATH", os.path.join(_BASE_DIR, "LSTM_MODEL", "lstm_model_new_final_simple(0722)_v2.pth"))
+YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MODEL", "final_v1.pt"))
+FIREBASE_CRED_PATH = os.getenv("FIREBASE_CRED_PATH_VISION", os.path.join(_BASE_DIR, "JSON_FILE", "simple.json"))
 
 # ===== 모델 파라미터 설정 =====
 LSTM_FEAT_DIM = 23
