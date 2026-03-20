@@ -1,21 +1,43 @@
 import cv2
 import mediapipe as mp
 import config
+import time
+from concurrent.futures import ThreadPoolExecutor
 
 
 # 이미지 처리의 모든 기능을 담당하는 클래스 (박스 그리기, 좌표값 저장 등)
 class VisionProcessor:
     def __init__(self):
+        print("[VisionProcessor] __init__ 시작")
         # MediaPipe 초기화 코드를 생성자(__init__)로 옮긴다
         self.mp_hands = mp.solutions.hands
-        self.hands = self.mp_hands.Hands(
-            static_image_mode=False, 
-            max_num_hands=2, 
-            min_detection_confidence=0.5
-        )
+        print("[VisionProcessor] mp.solutions.hands 완료")
+        try:
+            self.hands = self.mp_hands.Hands(
+                static_image_mode=False, 
+                max_num_hands=2, 
+                min_detection_confidence=0.5
+            )
+        except Exception as e:
+            print(f"[VisionProcessor] Hands() 에러: {e}")
+            import traceback
+            traceback.print_exc()
+            raise
+        print("[VisionProcessor] Hands() 초기화 완료")
         self.mp_drawing = mp.solutions.drawing_utils
         self.mp_drawing_styles = mp.solutions.drawing_styles
+        
+        # [Phase 2] 병렬 처리를 위한 ThreadPoolExecutor 생성
+        # max_workers=2: YOLO용 1개 + MediaPipe용 1개
+        self.executor = ThreadPoolExecutor(max_workers=2)
+        
+        # 📊 추론 시간 측정용
+        self.yolo_times = []
+        self.mediapipe_times = []
+        self.frame_count = 0
+        
         print("[VisionProcessor] MediaPipe Hands 모델이 초기화되었습니다.")
+        print("[VisionProcessor] ThreadPoolExecutor 초기화 완료 (workers=2)")
 
     # IoU 계산 함수
     def calculate_iou(self, box1, box2):
@@ -46,9 +68,43 @@ class VisionProcessor:
         frame_for_processing = cv2.resize(frame, (config.IMG_WIDTH // 2, config.IMG_HEIGHT // 2))  # 원본 코드와 동일한 크기로 리사이즈
         frame_rgb = cv2.cvtColor(frame_for_processing, cv2.COLOR_BGR2RGB)
 
-        # 2. YOLO 및 MediaPipe 실행
-        yolo_results = yolo_model(frame_for_processing, conf=0.5) # 크기 조정된 프레임 사용
-        hands_results = self.hands.process(frame_rgb)
+        # 2. YOLO 및 MediaPipe 병렬 실행 [Phase 2]
+        # ================================================================
+        # 📊 각 모델 추론 시간 측정을 위한 래퍼 함수
+        # ================================================================
+        def timed_yolo(frame, conf):
+            t0 = time.time()
+            # OpenVINO 추론 (device 파라미터 제거 - 환경변수로 제어)
+            result = yolo_model(frame, conf=conf)
+            elapsed = (time.time() - t0) * 1000
+            self.yolo_times.append(elapsed)
+            return result
+        
+        def timed_mediapipe(frame_rgb):
+            t0 = time.time()
+            result = self.hands.process(frame_rgb)
+            elapsed = (time.time() - t0) * 1000
+            self.mediapipe_times.append(elapsed)
+            return result
+        
+        # executor.submit(): 작업을 스레드 풀에 "제출"하고 즉시 Future 객체 반환
+        yolo_future = self.executor.submit(timed_yolo, frame_for_processing, 0.5)
+        hands_future = self.executor.submit(timed_mediapipe, frame_rgb)
+        
+        # ================================================================
+        # .result(): Future가 완료될 때까지 대기 후 결과 반환
+        # 두 작업이 동시에 실행되므로, 총 시간 = max(YOLO, MediaPipe)
+        # ================================================================
+        yolo_results = yolo_future.result()
+        hands_results = hands_future.result()
+        
+        # 📊 10프레임마다 평균 추론 시간 출력
+        self.frame_count += 1
+        if self.frame_count % 10 == 0 and self.yolo_times and self.mediapipe_times:
+            avg_yolo = sum(self.yolo_times[-30:]) / min(len(self.yolo_times), 30)
+            avg_mp = sum(self.mediapipe_times[-30:]) / min(len(self.mediapipe_times), 30)
+            print(f"[INFERENCE TIME] YOLO: {avg_yolo:.2f}ms | MediaPipe: {avg_mp:.2f}ms | "
+                  f"Parallel Total: {max(avg_yolo, avg_mp):.2f}ms (Sequential would be: {avg_yolo + avg_mp:.2f}ms)")
 
         # 3. 결과 데이터 추출 및 좌표 복원
         # YOLO 결과 추출

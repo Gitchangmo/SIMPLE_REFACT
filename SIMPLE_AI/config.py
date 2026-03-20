@@ -15,7 +15,15 @@ ZMQ_ADDRESS = os.getenv("ZMQ_BIND_ADDRESS", "tcp://*:5560")
 
 # ===== 모델 경로 설정 (절대경로) =====
 LSTM_MODEL_PATH = os.getenv("LSTM_MODEL_PATH", os.path.join(_BASE_DIR, "LSTM_MODEL", "lstm_model_new_final_simple(0722)_v2.pth"))
-YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MODEL", "final_v1.pt"))
+# YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MODEL", "final_v1.pt"))
+YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MODEL", "final_v1.onnx"))
+# YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MODEL", "final_v1_openvino_model"))
+
+# ===== OpenVINO 디바이스 설정 =====
+# Intel GPU 가속 활성화 (Intel Core Ultra 5 125H Arc GPU)
+# OPENVINO_DEVICE = os.getenv("OPENVINO_DEVICE", "GPU")
+OPENVINO_DEVICE = "CPU"  # GPU 문제 시 CPU로 테스트
+
 FIREBASE_CRED_PATH = os.getenv("FIREBASE_CRED_PATH_VISION", os.path.join(_BASE_DIR, "JSON_FILE", "simple.json"))
 
 # ===== 모델 파라미터 설정 =====
