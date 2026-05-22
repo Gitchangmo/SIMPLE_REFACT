@@ -1,4 +1,4 @@
-# 🥬 SIMPLE - Smart Inventory Manager for Personalized Life Enhancement
+# 🥬 SIMPLE
 
 > AI 기반 스마트 냉장고 재고 관리 시스템
 
