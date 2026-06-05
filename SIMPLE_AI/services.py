@@ -17,7 +17,7 @@ try:
     cred = credentials.Certificate(config.FIREBASE_CRED_PATH)
     firebase_admin.initialize_app(cred)
     db = firestore.client()
-    fridge_items = db.collection("fridges").document("aDfCOX4kY6eNXvf8jbBpQNel1sG3").collection("items")
+    fridge_items = db.collection("fridges").document(config.FIREBASE_USER_ID).collection("items")
     print("[DB] 파이어베이스와 연결을 성공했습니다.")
 except Exception as e:
     print(f"🛑 파이어베이스 연결 실패: {e}")
@@ -53,7 +53,7 @@ def update_inventory(prev_class, next_class, action):
         if action == "Putting":
             print(f"✅ {prev_className} 신규 등록 (수량: 1)")
             send_to_fastapi(
-                user_id="aDfCOX4kY6eNXvf8jbBpQNel1sG3",
+                user_id=config.FIREBASE_USER_ID,
                 name= prev_className,
                 quantity=1,
                 expiration_date=prev_expire_date_str,
@@ -70,7 +70,7 @@ def update_inventory(prev_class, next_class, action):
             else:
                 expiration_date = "기한없음"
             send_to_fastapi(
-                user_id="aDfCOX4kY6eNXvf8jbBpQNel1sG3",
+                user_id=config.FIREBASE_USER_ID,
                 name=next_className,
                 quantity=1,  # 빼는 동작은 -1로 표기 (혹은 빼는 개수)
                 expiration_date=expiration_date,  # 빼는 동작이면 유통기한은 불필요, 혹은 기존 값 사용
@@ -83,7 +83,7 @@ def update_inventory(prev_class, next_class, action):
             # 1) 넣기 (추가)
             if prev_class is not None and prev_class != -1:
                 send_to_fastapi(
-                    user_id="aDfCOX4kY6eNXvf8jbBpQNel1sG3",
+                    user_id=config.FIREBASE_USER_ID,
                     name=prev_className,
                     quantity=1,
                     expiration_date=prev_expire_date_str,
@@ -100,7 +100,7 @@ def update_inventory(prev_class, next_class, action):
                 else:
                     expiration_date = "기한없음"
                 send_to_fastapi(
-                    user_id="aDfCOX4kY6eNXvf8jbBpQNel1sG3",
+                    user_id=config.FIREBASE_USER_ID,
                     name=next_className,
                     quantity=1,  # or -1 for removing
                     expiration_date=expiration_date,

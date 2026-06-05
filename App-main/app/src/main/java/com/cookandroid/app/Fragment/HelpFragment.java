@@ -38,7 +38,7 @@ public class HelpFragment extends Fragment {
     private List<ChatMessage> chatList;
 
     // TODO: 실제 서버 IP로 변경 필요
-    private static final String SERVER_URL = "http://YOUR_SERVER_IP:8000/chat";
+    private static final String SERVER_URL = "http://192.168.200.199:8000/chat";
 
     @Nullable
     @Override

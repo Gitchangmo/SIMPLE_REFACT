@@ -21,10 +21,11 @@ YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH", os.path.join(_BASE_DIR, "YOLO_MOD
 
 # ===== OpenVINO 디바이스 설정 =====
 # Intel GPU 가속 활성화 (Intel Core Ultra 5 125H Arc GPU)
-# OPENVINO_DEVICE = os.getenv("OPENVINO_DEVICE", "GPU")
-OPENVINO_DEVICE = "CPU"  # GPU 문제 시 CPU로 테스트
+OPENVINO_DEVICE = os.getenv("OPENVINO_DEVICE", "GPU")
+# OPENVINO_DEVICE = "CPU"  # GPU 문제 시 CPU로 테스트
 
 FIREBASE_CRED_PATH = os.getenv("FIREBASE_CRED_PATH_VISION", os.path.join(_BASE_DIR, "JSON_FILE", "simple.json"))
+FIREBASE_USER_ID = os.getenv("FIREBASE_USER_ID", "sLK4H6291ThqieWXLXq7AlDVi3c2")
 
 # ===== 모델 파라미터 설정 =====
 LSTM_FEAT_DIM = 23
@@ -56,7 +57,8 @@ IMAGE_ID_NAME = {-1: 'Unknown', 0: 'food8_50', 1: 'food4_5', 2: 'food8_55',
             7: 'food8_39', 8: 'food8_11', 9: 'food8_25', 10: 'food8_45',
             11: 'food8_18', 12: 'food1_2', 13: 'food8_1', 14: 'food8_56',
             15: 'food4_9', 16: 'food8_16', 17: 'food8_12',
-            18: 'food8_40', 19: 'food8_42', 20: 'food4_16'
+            18: 'food8_40', 19: 'food8_42', 20: 'food4_16',
+            21: 'Unknown', 22: 'food8_2', 23: 'food8_54'
 }
 
 EXPIRATION_DAYS = {-1: 0, 0: 10, 1: 21, 2: 14,
